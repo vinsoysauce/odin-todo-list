@@ -6,44 +6,46 @@ class Project {
   }
 
   addTask(task) {
-    const taskList = this.tasks;
-    taskList.push(task);
-    this.tasks = taskList;
+    this.tasks.push(task);
   }
 
-  deleteTask(taskID) {
-
+  deleteTask(id) {
+    const newList = this.tasks.filter(task => task.taskId !== id);
+    this.tasks = newList;
   }
 }
 
 
-// const projectOne = new Project("personal");
-// const taskOne = {
-//   taskId: 67,
-//   title: 'Drink Water',
-//   desc: 'Drink some water',
-//   date: '08/19/2026',
-//   prio: 'Urgent'
-// }
+const projectOne = new Project("personal");
+const taskOne = {
+  taskId: 67,
+  title: 'Drink Water',
+  desc: 'Drink some water',
+  date: '08/19/2026',
+  prio: 'Urgent'
+}
 
-// const taskTwo = {
-//   taskId: 68,
-//   title: 'Drink Water',
-//   desc: 'Drink some water',
-//   date: '08/19/2026',
-//   prio: 'Urgent'
-// }
+const taskTwo = {
+  taskId: 68,
+  title: 'Drink Water',
+  desc: 'Drink some water',
+  date: '08/19/2026',
+  prio: 'Urgent'
+}
 
-// const taskThree = {
-//   taskId: 68,
-//   title: 'Drink Water',
-//   desc: 'Drink some water',
-//   date: '08/19/2026',
-//   prio: 'Urgent'
-// }
+const taskThree = {
+  taskId: 69,
+  title: 'Drink Water',
+  desc: 'Drink some water',
+  date: '08/19/2026',
+  prio: 'Urgent'
+}
 
-// console.log(projectOne.title);
-// projectOne.addTask(taskOne)
-// console.log(projectOne.tasks);
+projectOne.addTask(taskOne)
+projectOne.addTask(taskTwo)
+projectOne.addTask(taskThree)
+
+projectOne.deleteTask(68)
+console.log(projectOne.tasks);
 
 export default Project 
