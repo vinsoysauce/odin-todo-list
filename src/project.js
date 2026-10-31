@@ -23,37 +23,41 @@ class Project {
     const newList = this.tasks.sort((a, b) => a.prio - b.prio);
     this.tasks = newList;
   }
+
+  editProjectName(title) {
+    this.title = title;
+  }
 }
 
 
-const projectOne = new Project("personal");
-const taskOne = {
-  taskId: 67,
-  title: 'Drink Water',
-  desc: 'Drink some water',
-  date: new Date(2026, 8, 20),
-  prio: 2
-}
+// const projectOne = new Project("personal");
+// const taskOne = {
+//   taskId: 67,
+//   title: 'Drink Water',
+//   desc: 'Drink some water',
+//   date: new Date(2026, 8, 20),
+//   prio: 2
+// }
 
-const taskTwo = {
-  taskId: 68,
-  title: 'Eat Food',
-  desc: 'Eat some food',
-  date: new Date(2026, 8, 21),
-  prio: 3
-}
+// const taskTwo = {
+//   taskId: 68,
+//   title: 'Eat Food',
+//   desc: 'Eat some food',
+//   date: new Date(2026, 8, 21),
+//   prio: 3
+// }
 
-const taskThree = {
-  taskId: 69,
-  title: 'Drink Water',
-  desc: 'Drink some water',
-  date: new Date(2026, 8, 22),
-  prio: 1
-}
+// const taskThree = {
+//   taskId: 69,
+//   title: 'Drink Water',
+//   desc: 'Drink some water',
+//   date: new Date(2026, 8, 22),
+//   prio: 1
+// }
 
-projectOne.addTask(taskOne)
-projectOne.addTask(taskTwo)
-projectOne.addTask(taskThree)
-console.log(projectOne.tasks);
+// projectOne.addTask(taskOne)
+// projectOne.addTask(taskTwo)
+// projectOne.addTask(taskThree)
+// console.log(projectOne.tasks);
 
 export default Project 
