@@ -1,3 +1,5 @@
+import Task from "./task.js";
+
 class Project {
   constructor(title) {
     this.projectId = crypto.randomUUID();
@@ -5,7 +7,8 @@ class Project {
     this.tasks = [];
   }
 
-  addTask(task) {
+  addTask(title, desc, date, prio) {
+    const task = new Task(title, desc, date, prio)
     this.tasks.push(task);
   }
 
