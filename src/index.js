@@ -13,6 +13,11 @@ class Main {
     const newProject = new Project(projectTitle)
     this.projects.push(newProject);
   }
+
+  renameProject(projectTitle, newProjectName) {
+      const project = this.projects.filter(project => project.title === projectTitle);
+      project[0].title = newProjectName;
+  }
   
   addTaskToProject(projectTitle, title, desc, date, prio) {
     const stringToDate = new Date(date)
