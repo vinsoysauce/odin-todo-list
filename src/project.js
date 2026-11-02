@@ -7,6 +7,10 @@ class Project {
     this.tasks = [];
   }
 
+  editProjectName(title) {
+    this.title = title;
+  }
+
   addTask(title, desc, date, prio) {
     const task = new Task(title, desc, date, prio)
     this.tasks.push(task);
@@ -25,10 +29,6 @@ class Project {
   sortByPrio() {
     const newList = this.tasks.sort((a, b) => a.prio - b.prio);
     this.tasks = newList;
-  }
-
-  editProjectName(title) {
-    this.title = title;
   }
 }
 

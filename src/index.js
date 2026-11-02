@@ -25,6 +25,11 @@ class Main {
     project[0].addTask(title, desc, stringToDate, prio);
   }
 
+  editTaskFromProject(projectTitle, taskTitle, newTitle, newDesc, newDate, newPrio) {
+    deleteTaskFromProject(projectTitle, taskTitle)
+    addTaskToProject(projectTitle, newTitle, newDesc, newDate, newPrio);
+  }
+
   deleteTaskFromProject(projectTitle, taskTitle) {
     const project = this.projects.filter(project => project.title === projectTitle);
     const task = project[0].tasks.filter(task => task.title !== taskTitle)
