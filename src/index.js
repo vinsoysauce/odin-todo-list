@@ -14,7 +14,7 @@ class Main {
     this.projects.push(newProject);
   }
   
-  addTaskToProject(projectName) {
+  addTaskToProject(projectName, title, desc, date, prio) {
     const project = this.projects.filter(project => project.title === projectName);
     project[0].addTask('Drink Water', '8oz water', new Date(2026, 8, 22), 1);
     console.log(project[0])
