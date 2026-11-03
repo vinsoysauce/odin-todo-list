@@ -1,6 +1,5 @@
 import "./css/styles.css"
 import Project from "./project.js";
-import Task from "./task.js";
 
 
 
@@ -10,38 +9,44 @@ class Main {
   }
 
   createProject(projectTitle) {
-    const newProject = new Project(projectTitle)
-    this.projects.push(newProject);
+    const project = new Project(projectTitle)
+    this.projects.push(project)
   }
 
   renameProject(projectTitle, newProjectName) {
-      const project = this.projects.filter(project => project.title === projectTitle);
-      project[0].title = newProjectName;
+    const project = this.projects.filter(project => project.title === projectTitle)
+    project[0].renameProject(newProjectName)
+  }
+
+  deleteProject(projectTitle) {
+    const newList = this.projects.filter(project => project.title !== projectTitle)
+    this.projects = newList;
   }
   
   addTaskToProject(projectTitle, title, desc, date, prio) {
-    const stringToDate = new Date(date)
     const project = this.projects.filter(project => project.title === projectTitle);
-    project[0].addTask(title, desc, stringToDate, prio);
+    project[0].addTask(title, desc, date, prio);
   }
 
   editTaskFromProject(projectTitle, taskTitle, newTitle, newDesc, newDate, newPrio) {
-    deleteTaskFromProject(projectTitle, taskTitle)
-    addTaskToProject(projectTitle, newTitle, newDesc, newDate, newPrio);
+    const project = this.projects.filter(project => project.title === projectTitle);
+    project[0].editTask(taskTitle, newTitle, newDesc, newDate, newPrio)
   }
 
   deleteTaskFromProject(projectTitle, taskTitle) {
     const project = this.projects.filter(project => project.title === projectTitle);
     const task = project[0].tasks.filter(task => task.title !== taskTitle)
     project[0].tasks = task
-    console.log(project[0].tasks)
+  }
+
+  sortTaskFromProjectByPrio(projectTitle) {
+    const project = this.projects.filter(project => project.title === projectTitle);
+    project[0].sortByPrio()
+  }
+
+  sortTaskFromProjectByDate(projectTitle) {
+    const project = this.projects.filter(project => project.title === projectTitle);
+    project[0].sortByDate()
   }
 }
 
-const gameOne = new Main;
-
-// gameOne.createProject('Personal');
-// gameOne.createProject('Work');
-// gameOne.addTaskToProject('Personal', 'Drink water', '8oz water', "2026, 8, 22", 1)
-// gameOne.addTaskToProject('Personal', 'Drink beer', '8oz beer', "2026, 8, 22", 1)
-// gameOne.deleteTaskFromProject('Personal', 'Drink water')

@@ -4,7 +4,7 @@ class Task {
     this.title = title;
     this.desc = desc;
     this.date = new Date(date);
-    this.prio = 0;
+    this.prio = prio;
   }
 
   editTaskDetails(title, desc, date, prio) {
