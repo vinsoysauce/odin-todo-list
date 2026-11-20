@@ -1,41 +1,56 @@
 import Task from "./task.js";
 
 class Project {
+#id
+#title;
+#tasks;
+
   constructor(title) {
-    this.projectId = crypto.randomUUID();
-    this.title = title;
-    this.tasks = [];
+    this.#id = crypto.randomUUID();
+    this.#title = title;
+    this.#tasks = [];
   }
 
-  editProjectName(title) {
-    this.title = title;
+  get id() {
+    return this.#id;
   }
 
-  addTask(title, desc, date, prio) {
-    const task = new Task(title, desc, date, prio)
-    this.tasks.push(task);
+  set title(title) {
+    this.#title = title;
   }
 
-  editTask(taskTitle, newTitle, newDesc, newDate, newPrio) {
-    const task = this.tasks.filter(task => task.title === taskTitle);
-    task[0].editTaskDetails(newTitle, newDesc, newDate, newPrio);
+  get title() {
+    return this.#title;
   }
 
-  deleteTask(title) {
-    const newList = this.tasks.filter(task => task.title !== title);
-    this.tasks = newList;
+  set tasks(tasks){
+    this.#tasks = tasks;
   }
 
-  sortByDate() {
-    const newList = this.tasks.sort((a, b) => a.date - b.date);
-    this.tasks = newList;
-  }
-
-  sortByPrio() {
-    const newList = this.tasks.sort((a, b) => b.prio - a.prio);
-    this.tasks = newList;
+  get tasks() {
+    return this.#tasks;
   }
 }
 
+const TitleChanger = {
+  changeTitle(title) {
+    this.title = title
+  }
+}
+
+const TaskAdder = {
+  addTask(title, desc, date, prio) {
+    const task = new Task(title, desc, date, prio);
+    this.tasks.push(task)
+  }
+}
+
+Object.assign(Project.prototype, TitleChanger);
+Object.assign(Project.prototype, TaskAdder);
+
+const projectOne = new Project('Personal');
+projectOne.addTask('Drink Water', '8oz', '3/21/2026', 'Urgent');
+projectOne.changeTitle('Work');
+console.log(projectOne.tasks)
 
 export default Project 

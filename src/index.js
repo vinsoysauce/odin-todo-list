@@ -49,4 +49,3 @@ class Main {
     project[0].sortByDate()
   }
 }
-
