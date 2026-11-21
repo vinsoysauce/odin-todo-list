@@ -45,12 +45,45 @@ const TaskAdder = {
   }
 }
 
+const TaskEditor = {
+  editTask(title, newTitle, newDesc, newDate, newPrio) {
+    const task = this.tasks.filter(task => task.title === title);
+    task[0].title = newTitle;
+    task[0].desc = newDesc;
+    task[0].date = newDate;
+    task[0].prio = newPrio;
+  }
+}
+
+const TaskDeleter = {
+  deleteTask(title) {
+    const newList = this.tasks.filter(task => task.title !== title);
+    this.tasks = newList;
+  }
+}
+
+const TaskSorter = {
+  sortByDate() {
+    const newList = this.tasks.sort((a, b) => a.date - b.date);
+    this.tasks = newList;
+  },
+
+  sortByPrio() {
+    const newList = this.tasks.sort((a, b) => b.prio - a.prio);
+    this.tasks = newList;
+  }
+}
+
 Object.assign(Project.prototype, TitleChanger);
 Object.assign(Project.prototype, TaskAdder);
+Object.assign(Project.prototype, TaskEditor);
+Object.assign(Project.prototype, TaskDeleter);
+Object.assign(Project.prototype, TaskSorter);
 
 const projectOne = new Project('Personal');
 projectOne.addTask('Drink Water', '8oz', '3/21/2026', 'Urgent');
-projectOne.changeTitle('Work');
-console.log(projectOne.tasks)
+projectOne.addTask('Eat Food', '8oz steak', '3/21/2026', 'Urgent')
+projectOne.deleteTask('Drink Water');
+console.log(projectOne.tasks[0].date)
 
 export default Project 

@@ -40,6 +40,14 @@ class Task {
   get date() {
     return this.#date;
   }
+
+  set prio(prio) {
+    this.#prio = prio;
+  }
+
+  get prio() {
+    return this.#prio;
+  }
 }
 
 export default Task
