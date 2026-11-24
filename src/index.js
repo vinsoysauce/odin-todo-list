@@ -1,6 +1,6 @@
 import "./css/styles.css"
 import "./css/dom.css"
-import { dom } from "./dom.js";
+import { dom } from "./dom.js"
 import Add from "./add.js"
 import Edit from "./edit.js"
 import Remove from "./remove.js"
