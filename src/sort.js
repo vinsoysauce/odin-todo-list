@@ -1,6 +1,3 @@
-import Project from "./project.js";
-import Task from "./task.js";
-
 const Sort = {
   sortTaskFromProjectByDate(projectTitle) {
     const project = this.projects.filter(project => project.title === projectTitle);

@@ -1,6 +1,3 @@
-import Project from "./project.js";
-import Task from "./task.js";
-
 const Remove = {
   deleteProject(projectTitle) {
     const newList = this.projects.filter(project => project.title !== projectTitle);

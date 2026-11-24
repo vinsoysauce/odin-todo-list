@@ -1,5 +1,3 @@
-import Project from "./project.js";
-import Task from "./task.js";
 
 const Edit = {
   renameProject(projectTitle, newProjectTitle) {
