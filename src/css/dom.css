@@ -13,7 +13,20 @@
 
 }
 
-.projectButtonDiv {
+.logo-header-div {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+}
+
+.project-button-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.project-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
